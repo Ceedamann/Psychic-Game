@@ -35,23 +35,27 @@ console.log(computerGuess)
 document.onkeyup = function (event) {
     userGuess = event.key;
     console.log(userGuess);
-    var userInput = event.key.toLowerCase();
+    var userGuess = event.key.toLowerCase();
 
-    if (computerChoices.indexOf(userGuess) > -1) {
+   
     if(userGuess === computerGuess){
         wins++;
         guessSoFar = [];
         guessLeft = 9;  
-        computerRandomLetter();
+        computerRandomLetter()
+        
     }
     else if(userGuess != computerGuess){
         guessLeft--;
         guessSoFar.push(userGuess)
         document.querySelector("#guessSoFar").innerHTML = guessSoFar;
-    }
-    if (guessLeft=== 0){
-        resetScores();
-    }
+        }
+        if (guessLeft === 0) {
+
+            guessLeft = 9;
+            loses ++;
+            guessSoFar = [];
+       
 }
     updateDisplay();
 }
